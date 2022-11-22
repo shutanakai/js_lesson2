@@ -1,38 +1,47 @@
 window.addEventListener("load", () => {
 
+  // Profileボタン
+  const profileButton = document.querySelector(".navigation__button--profile");
+
+  // Hobbyボタン
+  const hobbyButton = document.querySelector(".navigation__button--hobby");
+
+  // コンテナー
+  const container = document.querySelector(".cardsContainer__mask");
+
   // Profileボタンを非活性にする
-  document.querySelector(".navigation__button--profile").style.pointerEvents = "none";
-  document.querySelector(".navigation__button--profile").style.color = "#555";
+  profileButton.style.pointerEvents = "none";
+  profileButton.style.color = "#555";
 
   // Hobbyボタンを押した時
-  document.querySelector(".navigation__button--hobby").addEventListener("click", function () {
+  hobbyButton.addEventListener("click", function () {
 
     // .cardsContainer__maskを-100%のところへ横に動かす
-    document.querySelector(".cardsContainer__mask").style.transform = "translateX(-100%)";
+    container.style.transform = "translateX(-100%)";
 
 
     // Hobbyボタンを非活性にする
-    document.querySelector(".navigation__button--hobby").style.pointerEvents = "none";
-    document.querySelector(".navigation__button--hobby").style.color = "#555";
+    hobbyButton.style.pointerEvents = "none";
+    hobbyButton.style.color = "#555";
 
     // Profileボタンを押せるようにする
-    document.querySelector(".navigation__button--profile").style.pointerEvents = "";
-    document.querySelector(".navigation__button--profile").style.color = "#fff";
+    profileButton.style.pointerEvents = "";
+    profileButton.style.color = "#fff";
   });
 
   // Profileボタンを押した時
-  document.querySelector(".navigation__button--profile").addEventListener("click", function () {
+  profileButton.addEventListener("click", function () {
 
     // .cardsContainer__maskを-0%のところへ横に動かす
-    document.querySelector(".cardsContainer__mask").style.transform = "translateX(0%)";
+    container.style.transform = "translateX(0%)";
 
     // Profileボタンを非活性にする
-    document.querySelector(".navigation__button--profile").style.pointerEvents = "none";
-    document.querySelector(".navigation__button--profile").style.color = "#555";
+    profileButton.style.pointerEvents = "none";
+    profileButton.style.color = "#555";
 
     // Hobbyボタンを押せるようにする
-    document.querySelector(".navigation__button--hobby").style.pointerEvents = "";
-    document.querySelector(".navigation__button--hobby").style.color = "#fff";
+    hobbyButton.style.pointerEvents = "";
+    hobbyButton.style.color = "#fff";
 
   });
 
