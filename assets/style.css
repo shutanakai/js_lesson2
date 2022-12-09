@@ -96,6 +96,14 @@ body {
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.cardsContainer__mask.__profile {
+  transform: translateX(0%);
+}
+
+.cardsContainer__mask.__hobby {
+  transform: translateX(-100%);
+}
+
 .card {
   display: flex;
   align-items: center;
