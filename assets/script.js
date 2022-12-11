@@ -6,6 +6,9 @@ window.addEventListener("load", () => {
   // Hobbyボタン
   const hobbyButton = document.querySelector(".navigation__button--hobby");
 
+  // Birthplaceボタン
+  const birthplaceButton = document.querySelector(".navigation__button--birthplace");
+
   // コンテナー
   const container = document.querySelector(".cardsContainer__mask");
 
@@ -25,7 +28,25 @@ window.addEventListener("load", () => {
 
   // カルーセルをスライドさせる
   const slideCarousel = function (percent) {
-    container.style.transform = `transform(${percent})`;
+    container.style.transform = `translateX(${percent})`;
+  }
+
+  // ボタンを制御する
+  const buttonControl = function(targetButton) {
+
+    // すべてのボタンを押せるようにする
+    enableButton(profileButton);
+    enableButton(hobbyButton);
+    enableButton(birthplaceButton);
+
+    // targetButtonを非活性にする
+    if (targetButton === profileButton) {
+      disableButton(profileButton);
+    } else if (targetButton === hobbyButton) {
+      disableButton(hobbyButton);
+    } else {
+      disableButton(birthplaceButton);
+    }
   }
 
   // Profileボタンを非活性にする
@@ -37,12 +58,8 @@ window.addEventListener("load", () => {
     // .cardsContainer__maskを-100%のところへ横に動かす
     slideCarousel("-100%");
 
-
-    // Hobbyボタンを非活性にする
-    disableButton(hobbyButton);
-
-    // Profileボタンを押せるようにする
-    enableButton(profileButton);
+    // ボタンの制御
+    buttonControl(hobbyButton);
   });
 
   // Profileボタンを押した時
@@ -51,12 +68,17 @@ window.addEventListener("load", () => {
     // .cardsContainer__maskを-0%のところへ横に動かす
     slideCarousel("0%");
 
-    // Profileボタンを非活性にする
-    disableButton(profileButton);
-
-    // Hobbyボタンを押せるようにする
-    enableButton(hobbyButton);
-
+    // ボタンの制御
+    buttonControl(profileButton);
   });
+
+  birthplaceButton.addEventListener("click", function() {
+
+    // .cardContainer__maskを-200%のところへ横に動かす
+    slideCarousel("-200%");
+
+    // ボタンの制御
+    buttonControl(birthplaceButton);
+  })
 
 });
