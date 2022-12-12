@@ -50,12 +50,20 @@ window.addEventListener("load", () => {
   // Profileボタンを非活性にする
   disableButton(profileButton);
 
-  for (let i = 0; triggerButtons.length < i; i++) {
+  for (let i = 0; i < triggerButtons.length; i++) {
     const button = triggerButtons[i];
     button.addEventListener("click", () => {
       slideCarousel(i);
       buttonControl(button);
     });
   }
+
+  // 参考(forEach)
+  triggerButtons.forEach((button, i) => {
+    button.addEventListener("click", () => {
+      slideCarousel(i);
+      buttonControl(button);
+    });
+  });
 
 });
