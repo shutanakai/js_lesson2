@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
 
   // カルーセルをスライドさせる
   const slideCarousel = (percent) => {
-    container.style.transform = `transform(${percent})`;
+    container.style.transform = `translateX(${percent})`;
   }
 
   // Profileボタンを非活性にする
