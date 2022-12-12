@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
   }
 
   // ボタンを非活性にする
-  // ※アロー関数の参考
   const disableButton = (button) => {
     button.style.pointerEvents = "none";
     button.style.color = "#555";
