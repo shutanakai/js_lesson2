@@ -33,11 +33,15 @@ window.addEventListener("load", () => {
 
     for(let index = 0; index < triggerButtons.length; index++) {
       const button = triggerButtons[index];
+
+      // 現在のコンテンツのボタンを非活性にする
       if (button === targetButton) {
         disableButton(button);
+
+      //それ以外のボタンを押せるようにする
       } else {
         enableButton(button);
-      };
+      }
     };
 
     // 参考(forEach)
@@ -46,9 +50,10 @@ window.addEventListener("load", () => {
     //     disableButton(button);
     //   } else {
     //     enableButton(button);
-    //   }
+    //   };
     // });
-  }
+
+  };
 
   // Profileボタンを非活性にする
   disableButton(profileButton);
@@ -59,7 +64,6 @@ window.addEventListener("load", () => {
       slideCarousel(i);
       buttonControl(button);
     });
-
   }
 
   // 参考(forEach)
