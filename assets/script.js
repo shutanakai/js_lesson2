@@ -3,6 +3,12 @@ window.addEventListener("load", () => {
   // Profileボタン
   const profileButton = document.querySelector(".navigation__button--profile");
 
+  // Hobbyボタン
+  const hobbyButton = document.querySelector(".navigation__button--hobby");
+
+  // Birthplaceボタン
+  const birthplaceButton = document.querySelector(".navigation__button--birthplace");
+
   // 全てのボタン
   const triggerButtons = document.querySelectorAll(".navigation__button");
 
@@ -31,56 +37,38 @@ window.addEventListener("load", () => {
   // ボタンを制御する
   const buttonControl = (targetButton) => {
 
+    // すべてのボタンを押せるようにする
     for(let index = 0; index < triggerButtons.length; index++) {
       const button = triggerButtons[index];
-      if (button === targetButton) {
-        disableButton(button);
-      } else {
-        enableButton(button);
-      };
+      enableButton(button);
     };
 
     // 参考(forEach)
     // triggerButtons.forEach((button) => {
-    //   if (button === targetButton) {
-    //     disableButton(button);
-    //   } else {
-    //     enableButton(button);
-    //   }
+    //   enableButton(button);
     // });
-  }
 
-  const clickButton = (e) => {
+    // 現在のコンテンツのボタンを非活性にする
+    disableButton(targetButton);
 
-    // e.targetでclickした対象を取得できる
-    const clickedButton = e.target;
-    let index;
-    for(let i = 0; i < triggerButtons.length; i++) {
-      const button = triggerButtons[i];
-      if (button === clickedButton) {
-        index = i;
-        break;
-      };
-    };
-
-    // 再帰関数参考(findIndex)
-    // const index = [...triggerButtons].findIndex((button) => button === clickedButton);
-
-    slideCarousel(index);
-    buttonControl(clickedButton);
   };
 
   // Profileボタンを非活性にする
   disableButton(profileButton);
 
-  for (let i = 0; i < triggerButtons.length; i++) {
-    const button = triggerButtons[i];
-    button.addEventListener("click", clickButton);
+  profileButton.addEventListener("click", () => {
+    slideCarousel(0);
+    buttonControl(profileButton);
+  });
 
-    // 同じ意味
-    // button.addEventListener("click", (e) => clickButton(e));
-  }
+  hobbyButton.addEventListener("click", () => {
+    slideCarousel(1);
+    buttonControl(hobbyButton);
+  });
 
-  // 参考(forEach)
-  // triggerButtons.forEach((button) => button.addEventListener("click", clickButton));
+  birthplaceButton.addEventListener("click", () => {
+    slideCarousel(2);
+    buttonControl(birthplaceButton);
+  });
+
 });
