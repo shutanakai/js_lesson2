@@ -59,11 +59,11 @@ window.addEventListener("load", () => {
   }
 
   // 参考(forEach)
-  triggerButtons.forEach((button, i) => {
-    button.addEventListener("click", () => {
-      slideCarousel(i);
-      buttonControl(button);
-    });
-  });
+  // triggerButtons.forEach((button, i) => {
+  //   button.addEventListener("click", () => {
+  //     slideCarousel(i);
+  //     buttonControl(button);
+  //   });
+  // });
 
 });
