@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
 
 
   // ボタンを押せるようにする
-  const enableButton = function (button) {
+  const enableButton = (button) => {
     button.style.pointerEvents = "";
     button.style.color = "#fff";
   }
@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
   }
 
   // カルーセルをスライドさせる
-  const slideCarousel = function (percent) {
+  const slideCarousel = (percent) => {
     container.style.transform = `transform(${percent})`;
   }
 
@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
   disableButton(profileButton);
 
   // Hobbyボタンを押した時
-  hobbyButton.addEventListener("click", function () {
+  hobbyButton.addEventListener("click", () => {
 
     // .cardsContainer__maskを-100%のところへ横に動かす
     slideCarousel("-100%");
@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
   });
 
   // Profileボタンを押した時
-  profileButton.addEventListener("click", function () {
+  profileButton.addEventListener("click", () => {
 
     // .cardsContainer__maskを-0%のところへ横に動かす
     slideCarousel("0%");
