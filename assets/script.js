@@ -50,37 +50,21 @@ window.addEventListener("load", () => {
     // });
   }
 
-  const clickButton = (e) => {
-
-    // e.targetでclickした対象を取得できる
-    const clickedButton = e.target;
-    let index;
-    for(let i = 0; i < triggerButtons.length; i++) {
-      const button = triggerButtons[i];
-      if (button === clickedButton) {
-        index = i;
-        break;
-      };
-    };
-
-    // 再帰関数参考(findIndex)
-    // const index = [...triggerButtons].findIndex((button) => button === clickedButton);
-
-    slideCarousel(index);
-    buttonControl(clickedButton);
-  };
-
   // Profileボタンを非活性にする
   disableButton(profileButton);
 
   for (let i = 0; i < triggerButtons.length; i++) {
     const button = triggerButtons[i];
-    button.addEventListener("click", clickButton);
+    button.addEventListener("click", () => {
+      slideCarousel(i);
+      buttonControl(button);
+    });
 
-    // 同じ意味
-    // button.addEventListener("click", (e) => clickButton(e));
   }
 
   // 参考(forEach)
-  // triggerButtons.forEach((button) => button.addEventListener("click", clickButton));
+  // triggerButtons.forEach((button, i) => button.addEventListener("click", () => {
+  //   slideCarousel(i);
+  //   buttonControl(button);
+  // }));
 });
