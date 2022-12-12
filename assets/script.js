@@ -29,8 +29,7 @@ window.addEventListener("load", () => {
   };
 
   // カルーセルをスライドさせる
-  const slideCarousel = (index) => {
-    const percent = `${-100 * index}%`;
+  const slideCarousel = (percent) => {
     container.style.transform = `translateX(${percent})`;
   };
 
@@ -57,17 +56,17 @@ window.addEventListener("load", () => {
   disableButton(profileButton);
 
   profileButton.addEventListener("click", () => {
-    slideCarousel(0);
+    slideCarousel("0%");
     buttonControl(profileButton);
   });
 
   hobbyButton.addEventListener("click", () => {
-    slideCarousel(1);
+    slideCarousel("-100%");
     buttonControl(hobbyButton);
   });
 
   birthplaceButton.addEventListener("click", () => {
-    slideCarousel(2);
+    slideCarousel("-200%");
     buttonControl(birthplaceButton);
   });
 
