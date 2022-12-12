@@ -11,26 +11,25 @@ window.addEventListener("load", () => {
 
 
   // ボタンを押せるようにする
-  const enableButton = function (button) {
+  const enableButton = (button) => {
     button.style.pointerEvents = "";
     button.style.color = "#fff";
   };
 
   // ボタンを非活性にする
-  // ※アロー関数の参考
   const disableButton = (button) => {
     button.style.pointerEvents = "none";
     button.style.color = "#555";
   };
 
   // カルーセルをスライドさせる
-  const slideCarousel = function (index) {
+  const slideCarousel = (index) => {
     const percent = `${-100 * index}%`;
     container.style.transform = `translateX(${percent})`;
   };
 
   // ボタンを制御する
-  const buttonControl = function(targetButton) {
+  const buttonControl = (targetButton) => {
 
     for(let index = 0; index < triggerButtons.length; index++) {
       const button = triggerButtons[index];
@@ -51,7 +50,7 @@ window.addEventListener("load", () => {
     // });
   }
 
-  const clickButton = function(e) {
+  const clickButton = (e) => {
 
     // e.targetでclickした対象を取得できる
     const clickedButton = e.target;
@@ -74,10 +73,14 @@ window.addEventListener("load", () => {
   // Profileボタンを非活性にする
   disableButton(profileButton);
 
-  triggerButtons.forEach(function(button) {
+  for (let i = 0; i < triggerButtons.length; i++) {
+    const button = triggerButtons[i];
     button.addEventListener("click", clickButton);
 
     // 同じ意味
     // button.addEventListener("click", (e) => clickButton(e));
-  });
+  }
+
+  // 参考(forEach)
+  // triggerButtons.forEach((button) => button.addEventListener("click", clickButton));
 });
