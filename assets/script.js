@@ -3,12 +3,6 @@ window.addEventListener("load", () => {
   // Profileボタン
   const profileButton = document.querySelector(".navigation__button--profile");
 
-  // Hobbyボタン
-  const hobbyButton = document.querySelector(".navigation__button--hobby");
-
-  // Birthplaceボタン
-  const birthplaceButton = document.querySelector(".navigation__button--birthplace");
-
   // 全てのボタン
   const triggerButtons = document.querySelectorAll(".navigation__button");
 
@@ -56,19 +50,12 @@ window.addEventListener("load", () => {
   // Profileボタンを非活性にする
   disableButton(profileButton);
 
-  profileButton.addEventListener("click", () => {
-    slideCarousel(0);
-    buttonControl(profileButton);
-  });
-
-  hobbyButton.addEventListener("click", () => {
-    slideCarousel(1);
-    buttonControl(hobbyButton);
-  });
-
-  birthplaceButton.addEventListener("click", () => {
-    slideCarousel(2);
-    buttonControl(birthplaceButton);
-  });
+  for (let i = 0; triggerButtons.length < i; i++) {
+    const button = triggerButtons[i];
+    button.addEventListener("click", () => {
+      slideCarousel(i);
+      buttonControl(button);
+    });
+  }
 
 });
