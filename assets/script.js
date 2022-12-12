@@ -36,7 +36,6 @@ window.addEventListener("load", () => {
     // .cardsContainer__maskを-100%のところへ横に動かす
     slideCarousel("-100%");
 
-
     // Hobbyボタンを非活性にする
     disableButton(hobbyButton);
 
