@@ -37,15 +37,7 @@ window.addEventListener("load", () => {
     enableButton(profileButton);
     enableButton(hobbyButton);
     enableButton(birthplaceButton);
-
-    // targetButtonを非活性にする
-    if (targetButton === profileButton) {
-      disableButton(profileButton);
-    } else if (targetButton === hobbyButton) {
-      disableButton(hobbyButton);
-    } else {
-      disableButton(birthplaceButton);
-    }
+    disableButton(targetButton);
   }
 
   // Profileボタンを非活性にする
